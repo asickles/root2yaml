@@ -138,11 +138,11 @@ void PbPb_yaml(int jetpt_bin = 7, int eta_bin = 4, bool dpt = false, int table =
 
       ostringstream tmpss;
       tmpss.clear();
-      tmpss << " - {name: RE, value: jet fragmentation function}" << endl;
-      tmpss << " - {name: pT(jet), value: " << jetpt_range[0][jetpt_bin] << " - " << jetpt_range[1][jetpt_bin] << "}" << endl;
-      tmpss << " - {name: abs. rapidity(jet), value: " << eta_range[0][eta_bin] << " - " << eta_range[1][eta_bin] << "}" << endl;
-      tmpss << " - {name: SQRT(S), units: GeV, value: '5020.0'}" << endl;
-      tmpss << " - {name: Centrality, value: pp}" << endl;
+      tmpss << "  - {name: RE, value: jet fragmentation function}" << endl;
+      tmpss << "  - {name: pT(jet), value: " << jetpt_range[0][jetpt_bin] << " - " << jetpt_range[1][jetpt_bin] << "}" << endl;
+      tmpss << "  - {name: abs. rapidity(jet), value: " << eta_range[0][eta_bin] << " - " << eta_range[1][eta_bin] << "}" << endl;
+      tmpss << "  - {name: SQRT(S), units: GeV, value: '5020.0'}" << endl;
+      tmpss << "  - {name: Centrality, value: pp}" << endl;
       dep_var_qual.push_back(tmpss.str());
 
       ry->add_dep_var_qualifiers(dep_var_qual);
@@ -175,12 +175,12 @@ void PbPb_yaml(int jetpt_bin = 7, int eta_bin = 4, bool dpt = false, int table =
 
       ostringstream tmpss;
       tmpss.clear();
-      if(!doratio)tmpss << " - {name: RE, value: jet fragmentation function}" << endl;
-      else tmpss << " - {name: RE, value: ratio of jet fragmentation function compared to pp collisions}" << endl;
-      tmpss << " - {name: pT(jet), value: " << jetpt_range[0][jetpt_bin] << " - " << jetpt_range[1][jetpt_bin] << "}" << endl;
-      tmpss << " - {name: abs. rapidity(jet), value: " << eta_range[0][eta_bin] << " - " << eta_range[1][eta_bin] << "}" << endl;
-      tmpss << " - {name: SQRT(S), units: GeV, value: '5020.0'}" << endl;
-      tmpss << " - {name: Centrality, value: " << centrality[i] << "}" << endl;
+      if(!doratio)tmpss << "  - {name: RE, value: jet fragmentation function}" << endl;
+      else tmpss << "  - {name: RE, value: ratio of jet fragmentation function compared to pp collisions}" << endl;
+      tmpss << "  - {name: pT(jet), value: " << jetpt_range[0][jetpt_bin] << " - " << jetpt_range[1][jetpt_bin] << "}" << endl;
+      tmpss << "  - {name: abs. rapidity(jet), value: " << eta_range[0][eta_bin] << " - " << eta_range[1][eta_bin] << "}" << endl;
+      tmpss << "  - {name: SQRT(S), units: GeV, value: '5020.0'}" << endl;
+      tmpss << "  - {name: Centrality, value: " << centrality[i] << "}" << endl;
       dep_var_qual.push_back(tmpss.str());
 
       ry->add_dep_var_qualifiers(dep_var_qual);
