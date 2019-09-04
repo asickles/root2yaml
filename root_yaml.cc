@@ -141,6 +141,12 @@ void root_yaml::print_ind_variable(){
 }
 void root_yaml::print_dep_variable(){
 
+	if (first_dep_var)
+	{
+		ofs << "dependent_variables:" << endl;
+		first_dep_var = false;
+	}
+
    ofs << "- header: {name: " << dep_var_name << "}" << endl;
    print_dep_var_qualifiers();
       
