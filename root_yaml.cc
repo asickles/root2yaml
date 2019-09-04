@@ -123,7 +123,7 @@ void root_yaml::set_dep_variable(vector<TH1 *> hstat_v, vector<TH1 *> hsys_p_v, 
 //prints...
 
 void root_yaml::print_dep_var_qualifiers(){
-   ofs << " qualifiers:" << endl;
+   ofs << "  qualifiers:" << endl;
    for (vector<string>::iterator it = dep_var_qualifiers.begin() ; it != dep_var_qualifiers.end(); ++it)
     ofs << *it ;
 }
@@ -150,11 +150,11 @@ void root_yaml::print_dep_variable(){
    ofs << "- header: {name: " << dep_var_name << "}" << endl;
    print_dep_var_qualifiers();
       
-   ofs << "values: " << endl;
+   ofs << "  values: " << endl;
    
    for(int i = 0; i < dep_var.size(); i++){
 	 
-      ofs << " - errors:" << endl;
+      ofs << "  - errors:" << endl;
       ofs << "    - {label: stat, symerror: " << dep_var_stat[i] << "}" << endl;
       ofs << "    - asymerror: {minus: " << dep_var_syslow[i] << ", plus: " << dep_var_syshigh[i] << "}" << endl;
       ofs << "      label: sys" << endl;

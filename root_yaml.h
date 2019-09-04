@@ -24,7 +24,7 @@ class root_yaml {
       std::string ind_var_units;
       std::string outfile;
       std::ofstream ofs;
-	  bool first_dep_var = true;
+      bool first_dep_var = true;
    public:
       root_yaml();
       ~root_yaml();
