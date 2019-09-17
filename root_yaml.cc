@@ -58,6 +58,16 @@ void root_yaml::set_ind_variable(TH1 *htmp, double xmin, double xmax){
    }
 }
 
+void root_yaml::set_ind_variable(TGraphErrors *gtmp){
+
+   int npts = gtmp->GetN();
+   for(int i=0; i<npts; i++){
+      double x,y;
+      gtmp->GetPoint(i,x,y);
+      ind_var.push_back(x);
+   }
+}
+
 void root_yaml::set_ind_variable_name(std::string name, std::string units){
    ind_var_name = name;
    ind_var_units = units;
@@ -85,6 +95,23 @@ void root_yaml::set_dep_variable(TH1 *hstat, TH1 *hsys_p, TH1 *hsys_n, double xm
 	 dep_var_syshigh.push_back(sys_p);
       }
    }
+}
+
+void root_yaml::set_dep_variable(TGraphErrors *gstat, TGraphAsymmErrors *gsys){
+
+   int npts = gstat->GetN();
+   for(int i=0; i<npts; i++){
+      double x, y, ystat, ysys_l, ysys_h;
+      gstat->GetPoint(i,x,y);
+      ystat = gstat->GetErrorY(i);
+      ysys_l = gsys->GetErrorYlow(i);
+      ysys_h = gsys->GetErrorYhigh(i);
+      dep_var.push_back(y);
+      dep_var_stat.push_back(ystat);
+      dep_var_syslow.push_back(ysys_l);
+      dep_var_syshigh.push_back(ysys_h);
+   }
+
 }
 
 void root_yaml::set_dep_variable(vector<TH1 *> hstat_v, vector<TH1 *> hsys_p_v, vector<TH1 *> hsys_n_v, vector<double> xmin, vector<double> xmax){

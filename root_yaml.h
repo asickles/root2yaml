@@ -6,6 +6,9 @@
 #include <vector>
 #include "TH1.h"
 #include <fstream>
+#include "TGraph.h"
+#include "TGraphErrors.h"
+#include "TGraphAsymmErrors.h"
 
 class root_yaml {
    private:
@@ -39,9 +42,11 @@ class root_yaml {
       void set_ind_var_qualifiers();
       void set_dep_var_qualifiers();
       void set_ind_variable(TH1 *htmp, double xmin, double xmax);
+      void set_ind_variable(TGraphErrors *gtmp);
       void set_ind_variable_name(std::string name, std::string units = "");
       void set_dep_variable_name(std::string name);
       void set_dep_variable(TH1 *hstat, TH1 *hsys_p, TH1 *hsys_n, double xmin = 0, double xmax = 1.0);
+      void set_dep_variable(TGraphErrors *gstat, TGraphAsymmErrors *gsys);
       void set_dep_variable(std::vector<TH1 *> hstat_v, std::vector<TH1 *> hsys_p_v, 
 	    std::vector<TH1 *> hsys_n_v, std::vector<double> xmin, std::vector<double> xmax);
       void print_ind_variable();
